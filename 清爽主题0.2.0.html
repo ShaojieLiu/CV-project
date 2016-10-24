@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>个人主页</title>
+        <style media="screen">
+            *{
+                -webkit-animation-delay:0.5s; /* Safari 和 Chrome */
+                -webkit-transition:width 0.5s, height 0.5s,
+                    background-color 0.5s, color 0.5s, opacity 0.5s, -webkit-transform 0.5s;
+                transition:width 0.5s, height 0.5s, background-color 0.5s,
+                color 0.5s, transform 0.5s, opacity 0.5s;
+                border-radius: 5px;
+                border-style: solid;
+                border-width: thin;
+            }
+            .bar{
+                text-align: center;
+                padding: 10px 0 0px 0;
+                background-color: rgba(36, 42, 69, 0.9);
+            }
+            #logo{
+                float:left;
+                margin-left:20px;
+            }
+            .barButton button{
+                border-width: 0;
+                font-size: 20px;
+                padding: 10px 20px 20px 20px;
+                background-color: transparent;
+                color: rgb(142, 146, 176);
+            }
+            .barButton button:hover{
+                color: white;
+            }
+            body{
+                margin: 0
+            }
+            .imgcenter{
+                text-align: center;
+                z-index: 10;
+                min-height:200px;
+                padding: 0;
+            }
+            .vertCenter{
+                position:absolute;;
+                top: 50%;
+                /*transform: translateY(0.5);*/
+            }
+            .img{
+                position: absolute;
+                margin: 10px;
+                max-width: 300px;
+                max-height: 170px;
+                transform: translateX(-50%);
+                z-index: 0;
+                display: none;
+            }
+            .buttArea{
+                /*height:100%;*/
+            }
+            .left{
+                transform: scale(0.9)translateX(-90%);
+                z-index: 30;
+            }
+            .right{
+                transform: scale(0.9)translateX(-30%);
+                z-index: 30;
+            }
+            .top{
+                display: inline-block;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="bar">
+            <a href="#">
+            <img id='logo' width='200px' src="LOGO.png" alt="Logo" />
+            </a>
+            <div class="barButton">
+                <button type="button" disabled="disabled" id="ubye">首  页</button>
+                <button type="button" disabled="disabled" id="zopn">作  品</button>
+                <button type="button" disabled="disabled" id="bowf">博  文</button>
+                <button type="button" disabled="disabled" id="lmxi">联  系</button>
+            </div>
+        </div>
+        <div class="main">
+            <div class="imgcenter">
+                <img class='img top' width='70%' src="lpbo/lpbo1.jpg" alt="" />
+                <img class='img none' width='70%' src="lpbo/lpbo4.jpg" alt="" />
+                <img class='img none' width='70%' src="lpbo/lpbo3.jpg" alt="" />
+                <div class="buttArea vertCenter">
+                    <button type="button" class='left'><</button>
+                    <button type="button" class='right'>></button>
+                </div>
+            </div>
+        </div>
+<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+<script type="text/javascript">
+    var swi = function(index, maxindex) {
+        $('.top').fadeOut()
+        $('.top').removeClass('top')
+        $($('.img')[index % maxindex]).addClass('top')
+        $($('.img')[index % maxindex]).fadeIn()
+    }
+    var interval = function () {
+        var intervalID = setInterval(function () {
+            currentPic += 1
+            swi(currentPic, maxindex)
+        }, 1000);
+    }
+    var bondLR = function () {
+        $('.left').on('click', function() {
+            currentPic += 3-1
+            swi(currentPic, maxindex)
+            clearInterval(intervalID)
+            interval ()
+        })
+    }
+    var __main = function () {
+        currentPic = 0
+        maxindex = 3
+        interval()
+        bondLR()
+    }
+    __main()
+</script>
+    </body>
+</html>

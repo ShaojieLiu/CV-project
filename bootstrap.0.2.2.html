@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>刘少杰主页</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/7c21822d4d.js"></script>
+        <style media="screen">
+            *{
+                -webkit-animation-delay:0.5s; /* Safari 和 Chrome */
+                -webkit-transition:width 0.5s, height 0.5s,
+                    background-color 0.5s, color 0.5s, opacity 0.5s, -webkit-transform 0.5s;
+                transition:width 0.5s, height 0.5s, background-color 0.5s,
+                color 0.5s, transform 0.5s, opacity 0.5s;
+            }
+            body{text-align: center;}
+
+            .bar{
+                text-align: center;
+                padding: 10px 0 0px 0;
+                background-color: rgba(0, 0, 0, 0.9);
+            }
+            #logo{
+                float:left;
+                margin-left:20px;
+            }
+            .barButton button{
+                border-width: 0;
+                font-size: 20px;
+                padding: 10px 20px 20px 20px;
+                background-color: transparent;
+                color: rgb(142, 146, 176);
+            }
+            .barButton button:hover{
+                color: white;
+                cursor: pointer;
+            }
+
+            .biglogo-container{
+                display: inline-block;
+                position: relative;
+                text-align: center;
+                width: 100%;
+            }
+            .liusj, .biglogo{
+                width: 65%;
+            }
+            .liusj{
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .liusj:hover{
+                transform: scale(0.8) translateY(10%) translateX(-60%);
+                cursor: pointer;
+            }
+
+            b{
+                color: darkblue;
+                font-size: 1.1em;
+            }
+            .float-left{float: left;}
+            .float-right{float: right;}
+            h4{
+                display: inline-block;
+                /*text-align: left;*/
+            }
+            @media (max-width: 650px) {
+                .bar{
+                    display: none;
+                }
+            }
+        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="bar">
+            <a href="#">
+            <img id='logo' width='200px' src="LOGO.png" alt="Logo" />
+            </a>
+            <div class="barButton">
+                <button type="button" disabled="disabled" id="ubye">Home</button>
+                <button type="button" disabled="disabled" id="zopn">Works</button>
+                <button type="button" disabled="disabled" id="bowf">Blog</button>
+                <button type="button" disabled="disabled" id="lmxi">Contact</button>
+            </div>
+        </div>
+
+        <div class="biglogo-container">
+            <img class="biglogo" src="img/myPhoto2.png" alt="" />
+            <img class="liusj" src="img/myPhoto1.png" alt="" />
+        </div>
+
+        <div class="welcome">
+            <h4>Welcome to Jason's website. <br>Hope you could enjoy it. <br>BTW, he is a <b> Front-End Engineer </b>.</h4>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <h4>哈喽，欢迎来到<b> 刘少杰 </b>的小站，<br>希望你能喜欢。<br>顺便说一句，他是个前端，不谢。</h4>
+        </div>
+<script type="text/javascript">
+    var bondLogo = function () {
+        $('#logo').on('click', function () {
+            if ($('.biglogo').attr('src') == 'img/myPhoto2.png') {
+                $('.biglogo').attr('src', 'img/myPhoto6.png')
+            } else {$('.biglogo').attr('src', 'img/myPhoto2.png')}
+        })
+    }
+    var __main = function () {
+        bondLogo()
+    }
+    __main()
+</script>
+    </body>
+</html>

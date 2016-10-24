@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>个人主页</title>
+        <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+        <script src="https://use.fontawesome.com/7c21822d4d.js"></script>
+        <style media="screen">
+            *{
+                -webkit-animation-delay:0.5s; /* Safari 和 Chrome */
+                -webkit-transition:width 0.5s, height 0.5s,
+                    background-color 0.5s, color 0.5s, opacity 0.5s, -webkit-transform 0.5s;
+                transition:width 0.5s, height 0.5s, background-color 0.5s,
+                color 0.5s, transform 0.5s, opacity 0.5s;
+                border-radius: 5px;
+                outline: thin dashed red;
+            }
+            body{
+                min-width:1024px;
+                background-color: rgba(219, 219, 219, 0.87);
+                padding: 0;
+                margin: 0;
+            }
+            button:hover{
+                cursor: pointer;
+            }
+            .bar{
+                text-align: center;
+                padding: 10px 0 0px 0;
+                background-color: rgba(36, 42, 69, 0.9);
+            }
+            #logo{
+                float:left;
+                margin-left:20px;
+            }
+            .barButton button{
+                border-width: 0;
+                font-size: 20px;
+                padding: 10px 20px 20px 20px;
+                background-color: transparent;
+                color: rgb(142, 146, 176);
+            }
+            .barButton button:hover{
+                color: white;
+            }
+            .main{
+                float: left;
+                position: relative;
+                /*left:50%;*/
+            }
+            .show{
+                background-color: white;
+                width: 100%-40px;
+                height: 320px;
+                position: relative;
+                /*left: -50%;*/
+                padding: 20px;
+            }
+            .opacity{
+                opacity:0.1;
+            }
+            #picLeft, #picRight{
+                color: gray;
+                font-size: 50px;
+                background-color: transparent;
+                height: 50%;
+                border-width: 0;
+                padding-top: 13%;
+            }
+            #picLeft{
+                float: left;
+            }
+            #picRight{
+                float:right;
+            }
+            #picLeft:hover, #picRight:hover, #picDetail:hover{
+                background-color: lightgray;
+                cursor: pointer;
+            }
+            .picShow {
+                height: 100%;
+                display: inline-block;
+                width: 55%;
+                float:left;
+                text-align: center;
+            }
+            .picButton{
+                text-align: center;
+                display: inline-block;
+                margin-left: 150px;
+                margin-right: 150px;
+            }
+            .picArea{
+                height: 300px;
+                width: 90%;
+                text-align: center;
+                display: inline-block;
+            }
+            .dot{
+                margin: 0 10px 0 10px;
+                background-color: transparent;
+                display: inline-block;
+                border-style: solid;
+                border-width: thin;
+                border-color: black;
+                width: 15px;
+                height: 8px;
+            }
+            .dot:hover{
+                background-color: gray;
+            }
+            .gray{
+                background-color: gray;
+            }
+            #picDetail{
+                padding: 10px;
+                font-size: 15px;
+                position: absolute;
+                top:250px;
+                background-color: rgb(76, 150, 67);
+                color: white;
+            }
+            .textArea{
+                padding: 30px;
+                width: 32%;
+                height: 240px;
+                float:left;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bar">
+            <a href="#">
+            <img id='logo' width='200px' src="LOGO.png" alt="Logo" />
+            </a>
+            <div class="barButton">
+                <button type="button" disabled="disabled" id="ubye">首  页</button>
+                <button type="button" disabled="disabled" id="zopn">作  品</button>
+                <button type="button" disabled="disabled" id="bowf">博  文</button>
+                <button type="button" disabled="disabled" id="lmxi">联  系</button>
+            </div>
+        </div>
+        <div class="main">
+            <div class="show">
+                <div type="button" id="picLeft"><</div>
+                <div class="picShow">
+                    <div class="picArea">
+                        <img src="lpbo/lpbo1.jpg" id='lpbo' height='270px' alt="轮播图" />
+                        <div class="picButton">
+
+                        </div>
+                    </div>
+                </div>
+                    <div type="button" id="picRight">></div>
+                    <div class="textArea">
+                        <h4 id='title'>图片标题</h2>
+                        <p id='descript'>图片说明~图片说明~图片说明~图片说明~
+                        图片说明~图片说明~图片说明~图片说明~图片说明~</p>
+                        <div type="button" id="picDetail">阅读全文</div>
+                    </div>
+            </div>
+        </div>
+<script type="text/javascript">
+    var indexofEle = function (obj) {
+        var all = obj.parentElement.children
+        for (var i in all) {
+            if (all[i] == obj) {return i}
+        }
+    }
+    var lpboInt = function () {
+        var show = document.querySelector('.show')
+        var picList = function (t, d, u, b){
+            this.titl = t
+            this.desc = d
+            this.src = u
+            this.dot = b
+        }
+        //只需修改列表就可以增删图片
+        var picList1 = new picList(`每一个不曾起舞的日子，<br>都是对生命的辜负。`, `学习前端，我从今开始掏粪，至死方休。我将不娶妻、不买房、不生子。我将不休假，不涨工资。我将尽忠职守，生死於斯。我是亲朋眼中的工作狂，公司里的苦逼。我是实现美术设计的神之手，老板眼里的延期狂，守护用户体验的坚盾。我将生命与荣耀献给前端工程，今夜如此，夜夜皆然。`, `lpbo/lpbo1.jpg`, 0)
+        var picList2 = new picList(`探索潮流 拥抱变化`,`大多数人在面对问题的时候，<br>只是去区别「知不知道」；<br><br>而有的人在面对问题的时候，<br>是在区别「能不能搞懂」。`,`lpbo/lpbo2.jpg`,1)
+        var picList3 = new picList('突破与疯狂',`人生可张狂可失意可乐极可痛彻可笑可哭,<br><br>就是不可平凡不可寡淡不可无聊`,`lpbo/lpbo3.jpg`,2)
+        var list = [picList1, picList2, picList3]
+        console.log(list)
+        // 第一张图的序号
+        var picNumber = 2
+        var picChange = function () {
+            picNumber = picNumber % list.length
+            var pic = list[picNumber]
+            picNumber++
+            // console.log(pic)
+            var lpbo = document.querySelector('#lpbo')
+            var titl = document.querySelector('#title')
+            var desc = document.querySelector('#descript')
+            var butt = document.querySelectorAll('.dot')
+            lpbo.src = pic.src
+            titl.innerHTML = pic.titl
+            desc.innerHTML = pic.desc
+            for (let prop of butt) {
+                prop.classList.remove('gray')
+            }
+            butt[pic.dot].classList.add('gray')
+        }
+        var idInterval
+        //延迟时间
+        var delay = 6000
+        var insertDot = function () {
+            var picButt = document.querySelector('.picButton')
+            for (var i = 0; i < list.length; i++) {
+                picButt.insertAdjacentHTML('beforeend', `<div class="dot"> </div>`)
+            }
+        }
+        var bondDot = function () {
+            for (var ind = 0; ind < list.length; ind++) {
+                var butt = document.querySelectorAll('.dot')[ind]
+                butt.addEventListener("mouseover", function() {
+                    var i = indexofEle(event.target)
+                    // console.log('click', i)
+                    picNumber = i
+                    picChange()
+                    clearInterval(idInterval)
+                    idInterval = setInterval(picChange, delay);
+                })
+            }
+        }
+        var bondLR = function () {
+            var l = document.querySelector('#picLeft')
+            var r = document.querySelector('#picRight')
+            l.addEventListener('click', function() {
+                picNumber += list.length + 1
+                picChange()
+                clearInterval(idInterval)
+                idInterval = setInterval(picChange, delay);
+            })
+            // console.log(l, r)
+            r.addEventListener("click", function() {
+                // console.log('clickR', event.target)
+                picNumber += 0
+                picChange()
+                clearInterval(idInterval)
+                idInterval = setInterval(picChange, delay);
+            })
+        }
+        // 轮播界面的初始化
+        insertDot()
+        bondLR()
+        bondDot()
+        picChange()
+        idInterval = setInterval(picChange, delay);
+    }
+
+    var __main = function () {
+        lpboInt()
+    }
+    __main()
+</script>
+    </body>
+</html>
