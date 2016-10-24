@@ -14,29 +14,33 @@
                     background-color 0.5s, color 0.5s, opacity 0.5s, -webkit-transform 0.5s;
                 transition:width 0.5s, height 0.5s, background-color 0.5s,
                 color 0.5s, transform 0.5s, opacity 0.5s;
+                /*border: thin dashed red;*/
             }
             body{text-align: center;}
 
             .bar{
                 text-align: center;
-                padding: 10px 0 0px 0;
+                padding: 10px 0 0 0;
                 background-color: rgba(0, 0, 0, 0.9);
             }
             #logo{
                 float:left;
+                display: inline-block;
                 margin-left:20px;
             }
-            .barButton button{
+            .barbutton, .barbtn, #menu{display: inline-block;}
+            .barbtn, #menu{
                 border-width: 0;
                 font-size: 20px;
                 padding: 10px 20px 20px 20px;
                 background-color: transparent;
                 color: rgb(142, 146, 176);
             }
-            .barButton button:hover{
+            .barbtn:hover, #logo:hover, #menu:hover{
                 color: white;
                 cursor: pointer;
             }
+            #logo:hover{transform:scale(0.9);}
 
             .biglogo-container{
                 display: inline-block;
@@ -44,18 +48,24 @@
                 text-align: center;
                 width: 100%;
             }
-            .liusj, .biglogo{
+            .biglogo-container:hover{cursor: pointer;}
+            .liusj, .biglogo, .water{
                 width: 65%;
             }
-            .liusj{
+            .liusj, .water{
                 position: absolute;
                 top: 0;
                 left: 50%;
                 transform: translateX(-50%);
             }
-            .liusj:hover{
-                transform: scale(0.8) translateY(10%) translateX(-60%);
+            .water{z-index: -10;}
+            .liusj-hover{
+                transform: scale(0.9) translateX(-55%);
                 cursor: pointer;
+            }
+            .water-hover{
+                transform: scale(1.05) translateX(-48%) translateY(2%);
+                opacity: 0.4;
             }
 
             b{
@@ -68,9 +78,23 @@
                 display: inline-block;
                 /*text-align: left;*/
             }
+            @media (min-width: 651px) {
+                #menu{display: none;}
+            }
             @media (max-width: 650px) {
-                .bar{
+                .barButton{
                     display: none;
+                    text-align: center;
+                }
+                #menu{font-size: 2em;}
+                .bar{
+                    text-align: right;
+                    padding: 10px 0 0 0;
+                }
+                .block{display: block;}
+                .barbtn{
+                    display: block;
+                    border-top: thin solid darkgray;
                 }
             }
         </style>
@@ -78,28 +102,30 @@
     </head>
     <body>
         <div class="bar">
-            <a href="#">
-            <img id='logo' width='200px' src="LOGO.png" alt="Logo" />
-            </a>
-            <div class="barButton">
-                <button type="button" disabled="disabled" id="ubye">Home</button>
-                <button type="button" disabled="disabled" id="zopn">Works</button>
-                <button type="button" disabled="disabled" id="bowf">Blog</button>
-                <button type="button" disabled="disabled" id="lmxi">Contact</button>
-            </div>
+            <img id='logo' height='50px' src="LOGO.png" alt="Logo" />
+            <span class="" id="menu"><i class="fa fa-navicon"></i></span>
+            <span class="barButton">
+                <span class="barbtn" type="button" id="ubye">Home</span>
+                <span class="barbtn" type="button" id="zopn">Works</span>
+                <span class="barbtn" type="button" id="bowf">Blog</span>
+                <span class="barbtn" type="button" id="lmxi">Contact</span>
+            </span>
         </div>
 
         <div class="biglogo-container">
-            <img class="biglogo" src="img/myPhoto2.png" alt="" />
+            <img class="water"  src="img/myPhoto4.png" alt="" />
+            <img class="biglogo" src="img/myPhoto6.png" alt="" />
             <img class="liusj" src="img/myPhoto1.png" alt="" />
         </div>
 
         <div class="welcome">
-            <h4>Welcome to Jason's website. <br>Hope you could enjoy it. <br>BTW, he is a <b> Front-End Engineer </b>.</h4>
+            <h5><i class="fa fa-arrow-up"></i> Click above for my <b>Resume</b>. 单击上图,查看简历<i class="fa fa-arrow-up"></i></h5>
+            <h4>Welcome to Liu's website. <br>Hope you could enjoy it. <br>BTW, he is a <b> Front-End Engineer </b>.</h4>
             <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <h4>哈喽，欢迎来到<b> 刘少杰 </b>的小站，<br>希望你能喜欢。<br>顺便说一句，他是个前端，不谢。</h4>
+            <h4>哈喽，欢迎来到<b> 刘少杰 </b>的小站，<br>希望你能喜欢。<br>顺便说一句，他是个<b>前端</b>，不谢。</h4>
         </div>
 <script type="text/javascript">
+//切换头像
     var bondLogo = function () {
         $('#logo').on('click', function () {
             if ($('.biglogo').attr('src') == 'img/myPhoto2.png') {
@@ -107,8 +133,24 @@
             } else {$('.biglogo').attr('src', 'img/myPhoto2.png')}
         })
     }
+    var bondWaterzoom = function () {
+        $('.biglogo-container').hover(function () {
+            $('.water').addClass('water-hover')
+            $('.liusj').addClass('liusj-hover')
+        }, function () {
+            $('.water').removeClass('water-hover')
+            $('.liusj').removeClass('liusj-hover')
+        })
+    }
+    var bondMenu = function () {
+        $('#menu').on('click', function () {
+            $('.barButton').toggleClass('block')
+        })
+    }
     var __main = function () {
         bondLogo()
+        bondWaterzoom()
+        bondMenu()
     }
     __main()
 </script>
