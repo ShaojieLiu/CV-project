@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>刘少杰-简历</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/7c21822d4d.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <style media="screen">
+            /**{outline: thin dotted red;}*/
+            body{text-align: center;}
+            b{color: black; font-weight: bolder;}
+            .topbar{
+                text-align:justify;
+                text-align-last:justify;
+                background-color: rgba(0, 0, 0, 0.90);
+                color: white;
+                border-bottom: thick solid white;
+            }
+            .topbar img{height: 2em;}
+            .topbar span{
+                display: inline-block;
+                font: bold 1.5em arial;}
+            .contact{
+                color: white;
+                background-color: rgba(0, 0, 0, 0.80);
+                padding: 1em 3em 1.5em 3em;
+            }
+            .name{
+                text-align: center;
+                padding: 0;
+            }
+            .name p{
+                font-size: 1.6em;
+                position: relative;
+                top: -0.5em;
+            }
+            .h0{font-size: 5em;}
+            .method{text-align: left;}
+            a{color: inherit;}
+            a:hover{color: lightblue;}
+            .leftpart{
+                padding: 0 0.5em 1em 0em;
+                text-align: left;
+            }
+            .title1{font-weight: bold;}
+            .title1-icon{font-size: 2em;}
+            .title1-txt{
+                display: inline-block;
+                position: relative;
+                bottom: -0.8em;
+                background-color: black;
+                color: white;
+                display: inline-block;
+                width: 80%;
+                position: relative;
+                left: -1.5em;
+                z-index: -10;
+                border-radius: 0.3em;
+                padding-left: 3em;
+            }
+            .title1-txt-c{font-size: 1em;}
+            .title1-txt-e{
+                color: royalblue;
+                font-size: 1em;
+            }
+
+            .title2{
+                font-weight: bold;
+                padding-left: 0.5em;
+            }
+            .title2-icon{
+                font-size: 1.5em;
+                color: royalblue;
+            }
+            .title2-txt{
+                display: inline-block;
+                position: relative;
+                width: 80%;
+                left: -1em;
+                z-index: -10;
+                border-bottom: medium solid black;
+                padding-left: 1em;
+            }
+
+
+            .title3 i{
+                margin-left: -1em;}
+            .title3{
+                padding-left: 2.5em;
+            }
+            @media (min-width: 650px) {
+                .name{float: right;}
+            }
+            @media (max-width: 370px) {
+                .topbtn370{display: none !important;}
+            }
+        </style>
+    </head>
+    <body>
+        <div class="topbar">
+            <span></span>
+            <img src="LOGO.png" alt="" /> <span class="line">|</span>
+            <span>源 代 码</span> <span class="line">|</span>
+            <span>打印PDF</span> <span class="line topbtn370">|</span>
+            <span class="topbtn370">个人主页</span> <span></span>
+        </div>
+        <div class="contact">
+            <div class="name">
+                <span class="h0">刘少杰</span><br>
+                <p>前端工程师</p>
+            </div>
+            <div class="method">
+                <h4 class="method-txt"><i class="fa fa-envelope method-txt"></i> <a href="http://shaojieliu@foxmail.com"> shaojieliu@foxmail.com</a></h4>
+                <h4 class="method-txt"><i class="fa fa-github method-txt"></i> <a href="https://github.com/ShaojieLiu"> github.com/ShaojieLiu</a></h4>
+                <h4 class="method-txt"><i class="fa fa-home method-txt"></i> <a href="http://119.29.169.60"> 119.29.169.60</a></h4>
+                <h4 class="method-txt"><i class="fa fa-phone"></i> <a href=""> (405)887-8011</a></h4>
+            </div>
+        </div>
+        <div class="content">
+            <div class="leftpart">
+
+                <!-- <div class="title1">
+                    <span class="fa-stack fa-lg title1-icon">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-stack-1x fa-book fa-inverse"></i>
+                    </span>
+                    <div class="title1-txt">
+                        <span class="title1-txt-c">教 育 经 历</span><br>
+                        <span class="title1-txt-e">Education</span>
+                    </div>
+                </div>
+
+                <div class="title2">
+                    <span class="fa-stack fa-lg title2-icon">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-stack-1x fa-graduation-cap fa-inverse"></i>
+                    </span>
+                    <div class="title2-txt">2014~2017 硕士:华南师大(推免保送)</div>
+                </div>
+
+                <div class="title3">
+                    <i class="fa fa-trophy"> &nbsp; </i>2016年 3月~12月 <b>访问学者</b> - 美国UCO大学<br>
+                    <i class="fa fa-trophy"> &nbsp; </i>2014年~2016年 连续三年 "<b>一等奖学金</b>"<br>
+                    <i class="fa fa-trophy"> &nbsp; </i>2016年 3月 美国数学建模 "二等奖"<br>
+                    <i class="fa fa-trophy"> &nbsp; </i>2015年 11月 校级学术演讲比赛 "第一名"<br>
+                </div>
+
+                <div class="title2">
+                    <span class="fa-stack fa-lg title2-icon">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-stack-1x fa-graduation-cap fa-inverse"></i>
+                    </span>
+                    <div class="title2-txt">2010~2014 本科:华南师大(国家 211)</div>
+                </div>
+
+                <div class="title3">
+                    <i class="fa fa-trophy"> &nbsp; 2012年 全国物理实验竞赛 "二等奖"</i><br>
+                    <i class="fa fa-trophy"> &nbsp; 2012年 广东物理设计大赛 "二等奖"</i><br>
+                </div> -->
+
+            </div>
+            <div class="rightpart">
+
+            </div>
+        </div>
+<script type="text/javascript">
+    var addT1 = function (where, icon, txtC, txtE) {
+        var temperate = `
+            <div class="title1">
+                <span class="fa-stack fa-lg title1-icon">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-stack-1x fa-${icon} fa-inverse"></i>
+                </span>
+                <div class="title1-txt">
+                    <span class="title1-txt-c">${txtC}</span><br>
+                    <span class="title1-txt-e">${txtE}</span>
+                </div>
+            </div>`
+        $(`.${where}`).append(temperate)
+    }
+    var addT2 = function (where, icon, txt) {
+        var temperate = `
+            <div class="title2">
+                <span class="fa-stack fa-lg title2-icon">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-stack-1x fa-${icon} fa-inverse"></i>
+                </span>
+                <div class="title2-txt">${txt}</div>
+            </div>`
+        $(`.${where}`).append(temperate)
+    }
+    var addT3 = function (where, icon, txt) {
+        var item = ``
+        for (let index in txt) {
+            item += `<i class="fa fa-${icon[index]}"> &nbsp; </i>${txt[index]}<br>`
+        }
+        var temperate = `
+            <div class="title3">
+                ${item}
+            </div>`
+        $(`.${where}`).append(temperate)
+    }
+    var init = function () {
+        addT1('leftpart', 'book', '教 育 经 历', 'Education')
+        addT2('leftpart', 'graduation-cap', '2014~2017 硕士:华南师大(推免保送)')
+        addT3('leftpart', ['trophy','trophy','trophy','trophy'], [
+            '2016年 3月~12月 <b>访问学者</b> - 美国UCO大学',
+            '2014年~2016年 连续三年 "<b>一等奖学金</b>"',
+            '2016年 3月 美国数学建模 "二等奖"',
+            '2015年 11月 校级学术演讲比赛 "第一名"'
+        ])
+        addT2('leftpart', 'graduation-cap', '2010~2014 本科:华南师大(国家 211)')
+        addT3('leftpart', ['trophy','trophy'], [
+            '2012年 全国物理实验竞赛 "二等奖"',
+            '2012年 广东物理设计大赛 "二等奖"'
+        ])
+
+        addT1('leftpart', 'language', '语 言 水 平', 'Language')
+        addT2('leftpart', 'star', '英语')
+        addT3('leftpart', ['check','check','check'], [
+            '通过 CET-4, <b>CET-6</b>',
+            '查阅英文技术文档, 开发者大会视频',
+            '在美国生活一年, <b>邮件/口语</b> 交流无障碍'
+        ])
+        addT2('leftpart', 'star', '中文')
+        addT3('leftpart', ['check'], ['粤语 / 普通话 / 潮州话'])
+
+        addT1('leftpart', 'rocket', '项 目 经 验', 'Experience')
+    }
+    var __main = function () {
+        init()
+    }
+    __main()
+</script>
+    </body>
+</html>
