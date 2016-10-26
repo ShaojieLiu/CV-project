@@ -12,6 +12,8 @@
             /**{outline: thin dotted red;}*/
             body{text-align: center;}
             b{color: black; font-weight: bolder;}
+            st{color: royalblue; font-weight: bolder;}
+            .btn-primary{height: 1.8em; padding: 2px; z-index: 100; position: relative; bottom: 12px;}
             .topbar{
                 text-align:justify;
                 text-align-last:justify;
@@ -42,24 +44,22 @@
             a{color: inherit;}
             a:hover{color: lightblue;}
             .leftpart{
-                padding: 0 0.5em 1em 0em;
                 text-align: left;
+                padding: 0;
             }
-            .title1{font-weight: bold;}
+            .title1{font-weight: bold; position: relative; width: 100%;}
             .title1-icon{font-size: 2em;}
             .title1-txt{
                 display: inline-block;
-                position: relative;
-                bottom: -0.8em;
+                top:0.5em;
                 background-color: black;
                 color: white;
-                display: inline-block;
-                width: 80%;
-                position: relative;
-                left: -1.5em;
+                width: 90%;
+                position: absolute;;
                 z-index: -10;
                 border-radius: 0.3em;
                 padding-left: 3em;
+                left: 2em;
             }
             .title1-txt-c{font-size: 1em;}
             .title1-txt-e{
@@ -70,20 +70,27 @@
             .title2{
                 font-weight: bold;
                 padding-left: 0.5em;
+                position: relative;
+                left: -2.2em;
+                width: 100%;
+                z-index: 10;
             }
             .title2-icon{
                 font-size: 1.5em;
                 color: royalblue;
+                position: relative;
+                left: 1.5em;
             }
             .title2-txt{
                 display: inline-block;
-                position: relative;
-                width: 80%;
-                left: -1em;
+                /*position: relative;*/
+                width: 85%;
+                left: -1.7em;
                 z-index: -10;
                 border-bottom: medium solid black;
-                padding-left: 1em;
+                padding-left: 2em;
             }
+            .demo{position: absolute; right: 10%;}
 
 
             .title3 i{
@@ -121,8 +128,8 @@
         </div>
         <div class="content">
             <div class="leftpart">
-
-                <!-- <div class="title1">
+<!--
+                <div class="title1">
                     <span class="fa-stack fa-lg title1-icon">
                         <i class="fa fa-circle fa-stack-2x"></i>
                         <i class="fa fa-stack-1x fa-book fa-inverse"></i>
@@ -138,7 +145,8 @@
                         <i class="fa fa-circle fa-stack-2x"></i>
                         <i class="fa fa-stack-1x fa-graduation-cap fa-inverse"></i>
                     </span>
-                    <div class="title2-txt">2014~2017 硕士:华南师大(推免保送)</div>
+                    <span class="title2-txt">2014~2017 硕士:华南师大(推免保送)
+                    <div class="btn btn-primary"><i class="fa fa-chain"></i> Demo</div></span>
                 </div>
 
                 <div class="title3">
@@ -159,7 +167,8 @@
                 <div class="title3">
                     <i class="fa fa-trophy"> &nbsp; 2012年 全国物理实验竞赛 "二等奖"</i><br>
                     <i class="fa fa-trophy"> &nbsp; 2012年 广东物理设计大赛 "二等奖"</i><br>
-                </div> -->
+                </div>
+-->
 
             </div>
             <div class="rightpart">
@@ -181,14 +190,16 @@
             </div>`
         $(`.${where}`).append(temperate)
     }
-    var addT2 = function (where, icon, txt) {
+    var addT2 = function (where, icon, txt, isbtn='nobtn') {
+        var demo = ``
+        if (isbtn != 'nobtn') {demo = `<div class="btn btn-primary demo" onclick="location.href='${isbtn}'"><i class="fa fa-chain"></i> Demo</div>`}
         var temperate = `
             <div class="title2">
                 <span class="fa-stack fa-lg title2-icon">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-stack-1x fa-${icon} fa-inverse"></i>
                 </span>
-                <div class="title2-txt">${txt}</div>
+                <div class="title2-txt">${txt}${demo}</div>
             </div>`
         $(`.${where}`).append(temperate)
     }
@@ -219,16 +230,42 @@
         ])
 
         addT1('leftpart', 'language', '语 言 水 平', 'Language')
-        addT2('leftpart', 'star', '英语')
+        addT2('leftpart', 'star', '英  语')
         addT3('leftpart', ['check','check','check'], [
             '通过 CET-4, <b>CET-6</b>',
             '查阅英文技术文档, 开发者大会视频',
             '在美国生活一年, <b>邮件/口语</b> 交流无障碍'
         ])
-        addT2('leftpart', 'star', '中文')
+        addT2('leftpart', 'star', '中  文')
         addT3('leftpart', ['check'], ['粤语 / 普通话 / 潮州话'])
 
         addT1('leftpart', 'rocket', '项 目 经 验', 'Experience')
+        addT2('leftpart', 'cubes', `简历生成器`, 'resume.html')
+            addT3('leftpart', ['star','gear','gear'], [
+                '快速灵活地生成预定样式的简历(本页面)',
+                '语义化的 HTML 模块化的 CSS 实现<st>响应式布局</st>',
+                '编写<st>JavaScript模块</st>生成html',
+            ])
+        addT2('leftpart', 'cubes', `数字拼图 游戏`, 'resume.html')
+            addT3('leftpart', ['star','gear','gear'], [
+                '基于<st>HTML5</st> 的单页面游戏应用',
+                '<b>完美兼容</b> 桌面端和移动端',
+                '尝试不使用<st>jQuery</st>纯粹使用<st>原生JS</st>开发'
+            ])
+        addT2('leftpart', 'cubes', `ToDo 应用`, 'resume.html')
+            addT3('leftpart', ['gear','gear','gear'], [
+                '使用<st> HTML5的localStorage </st>新特性实现本地数据存储',
+                '利用<st> Ajax和JSON </st>实现前后端协同数据交互',
+                '基于<b> 事件链监听 </b>实现用户界面插件化交互'
+            ])
+        addT2('leftpart', 'cubes', `首页轮播图`, 'resume.html')
+            addT3('leftpart', ['gear','gear','gear'], [
+                '利用<st> jQuery 面向对象 </st>开发轮播图组件',
+                '基于<st> CSS3 </st>的新特性实现设计意图'
+            ])
+        addT2('leftpart', 'cubes', `用户注册页面`, 'resume.html')
+        addT2('leftpart', 'cubes', `微博评论页面`, 'resume.html')
+        addT2('leftpart', 'cubes', `个人小站搭建`, 'resume.html')
     }
     var __main = function () {
         init()
