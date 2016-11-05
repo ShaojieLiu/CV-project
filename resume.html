@@ -12,10 +12,61 @@
             /**{outline: thin dotted red;}*/
             body{text-align: center; min-width: 320px;}
             b{color: black; font-weight: bolder;}
-            st{color: royalblue; font-weight: bolder;}
-            canvas{display: none;}
+            st{color: #336699; font-weight: bolder;}
+
+            @-webkit-keyframes typing { from{width:0;} 20% { width: 0; } }
+            @-webkit-keyframes blink-caret { 50% { border-color: white; } }
+            @-webkit-keyframes typedel {from{width:0;} 10% { width: 0; } 50%{width:6.1em;} 80%{width:6.1em;} to{width:0;}}
+            body {
+                /* 字体栈写在这: */
+                font-family: sans-serif;
+                font-size: 20px;
+            }
+            .h0{
+                display: inline-block;
+                font-size: 4em;
+                width: 3.1em;
+                white-space: nowrap;
+                overflow: hidden;
+                border-right: .1em solid transparent;
+                animation: typing 2s steps(1,end),
+                            typing 2s 2s steps(3,start), /* # of steps = # of chars */
+                            blink-caret 1s 4;
+            }
+            .name .p1{
+                display: inline-block;
+                width: 6.1em;
+                white-space: nowrap;
+                overflow: hidden;
+                border-right: .1em solid transparent;
+                animation: typing 4s steps(1,end),
+                            typedel 2s 4s steps(6,end) forwards, /* # of steps = # of chars */
+                            blink-caret 1s 4s 2;
+            }
+            .name .p3{
+                display: inline-block;
+                width: 5.1em;
+                white-space: nowrap;
+                overflow: hidden;
+                border-right: .1em solid transparent;
+                animation: typing 6s steps(1,end),
+                            typing 1s 6s steps(9,end), /* # of steps = # of chars */
+                            blink-caret 1s 6s 1;
+            }
+            .name .p2{
+                display: inline-block;
+                width: 5.1em;
+                white-space: nowrap;
+                overflow: hidden;
+                border-right: .1em solid transparent;
+                animation: typing 7s steps(1,end),
+                            typing 1.5s 7s steps(5,end), /* # of steps = # of chars */
+                            blink-caret 1s 7s 2;
+            }
+
             .btn-primary{
                 height: 1.8em;
+                width: 5em;
                 padding: 2px;
                 z-index: 100;
                 position: relative;
@@ -25,7 +76,7 @@
             .topbar{
                 text-align:justify;
                 text-align-last:justify;
-                background-color: rgba(0, 0, 0, 0.90);
+                background-color: #336699;
                 color: white;
                 border-bottom: thick solid white;
             }
@@ -39,7 +90,8 @@
                 font: bold 1.5em arial;}
             .contact{
                 color: white;
-                background-color: rgba(0, 0, 0, 0.80);
+                background-color: #336699;
+                border: medium solid;
                 padding: 1em 3em 1.5em 3em;
             }
             .method-txt a{text-decoration: underline;}
@@ -48,26 +100,27 @@
                 padding: 0;
             }
             .name p{
-                font-size: 1.6em;
+                font-size: 1em;
                 position: relative;
                 top: -0.5em;
             }
-            .h0{font-size: 5em;}
             .method{text-align: left;}
             a{color: inherit;}
-            a:hover{color: lightblue;}
+            a:hover{color: #99ccff;}
             .leftpart, .rightpart{
                 text-align: left;
                 padding: 0;
             }
+            /*.content{padding: 0 20px;}*/
             .title1{font-weight: bold; position: relative; width: 100%;}
-            .title1-icon{font-size: 2em;}
+            .title1-icon{font-size: 2em; color: #336699; }
             .title1-txt{
                 display: inline-block;
                 top:0.5em;
-                background-color: black;
+                background-color: #99ccff;
+                border: medium solid;
                 color: white;
-                width: 90%;
+                width: 80%;
                 position: absolute;;
                 z-index: -10;
                 border-radius: 0.3em;
@@ -77,7 +130,7 @@
             }
             .title1-txt-c{font-size: 1em;}
             .title1-txt-e{
-                color: royalblue;
+                color: #336699;
                 font-size: 1em;
             }
 
@@ -91,53 +144,65 @@
             }
             .title2-icon{
                 font-size: 1.5em;
-                color: royalblue;
+                color: #99ccff;
                 position: relative;
                 left: 1.5em;
             }
             .title2-txt{
                 display: inline-block;
                 position: relative;
-                width: 85%;
+                width: 80%;
                 left: 0em;
                 z-index: -10;
-                border-bottom: medium solid black;
+                border-bottom: thin solid #99ccff;
                 padding-left: 2em;
+                z-index: -1;
+                /*background-color: red;*/
+                border-top-right-radius: 1em;
             }
-            .demo{position: absolute; right: 10%;}
+            .demo{position: absolute; right: 10%; bottom: 28%; z-index: 100;}
+            /*.demo:hover{cusor: pointer;}*/
 
 
             .title3 i{
                 margin-left: -1em;}
             .title3{
                 padding-left: 2.5em;
+                width: 90%;
             }
+
+            .none{display: none;}
+            .main{height:100%;}
+            /*.print{width: 800px;}*/
             @media (min-width: 685px) {
                 .name{float: right;}
                 .leftpart, .rightpart{width: 50%; height: 100%;}
                 .leftpart{float: left;
                     /*border-right: thick double black;*/
                 }
-                .rightpart{float: right; border-left: thick double black;}
+                .rightpart{float: right; border-left: thin solid #336699;}
                 /*.title1-txt, .title2-txt, .title1, .title2, .title3{width: 90%}*/
             }
-            @media (max-width: 370px) {
-                .topbtn370{display: none !important;}
+            @media (max-width: 485px) {
+                .topbar{display: none;}
             }
         </style>
     </head>
     <body>
+    <div class="printWindow">
         <div class="topbar">
             <span></span>
             <img  class="topbtn" src="LOGO.png" alt="" /> <span class="line">|</span>
             <span class="topbtn">源 代 码</span> <span class="line">|</span>
             <span class="topbtn btnPrint">打印PDF</span> <span class="line topbtn370">|</span>
-            <span class="topbtn topbtn370">个人主页</span> <span></span>
+            <span class="topbtn none">个人主页</span> <span></span>
         </div>
         <div class="contact">
             <div class="name">
-                <span class="h0">刘少杰</span><br>
-                <p>前端工程师</p>
+                <div class="h0">刘少杰</div><br>
+                <p class=p1>切图写网页的</p>
+                <p class=p3>JavaScript</p>
+                <p class=p2>前端工程师</p>
             </div>
             <div class="method">
                 <h4 class="method-txt"><i class="fa fa-envelope method-txt"></i> <a href="http://shaojieliu@foxmail.com"> shaojieliu@foxmail.com</a></h4>
@@ -195,6 +260,7 @@
 
             </div>
         </div>
+    </div>
 <script src="js/html2canvas.js">
 </script>
 <script type="text/javascript">
@@ -214,14 +280,14 @@
     }
     var addT2 = function (where, icon, txt, isbtn='nobtn') {
         var demo = ``
-        if (isbtn != 'nobtn') {demo = `<div class="btn btn-primary demo" onclick="location.href='${isbtn}'"><i class="fa fa-chain"></i> Demo</div>`}
+        if (isbtn != 'nobtn') {demo = `<button class="btn btn-primary demo" onclick="location.href='${isbtn}'"><i class="fa fa-chain"></i> Demo</button>`}
         var temperate = `
             <div class="title2">
                 <span class="fa-stack fa-lg title2-icon">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-stack-1x fa-${icon} fa-inverse"></i>
                 </span>
-                <div class="title2-txt">${txt}${demo}</div>
+                <div class="title2-txt">${txt}</div>${demo}
             </div>`
         $(`.${where}`).append(temperate)
     }
@@ -238,96 +304,113 @@
     }
     var init = function () {
         var where = 'leftpart'
-        addT1(where, 'book', '教 育 经 历', 'Education')
-        addT2(where, 'graduation-cap', '2014~2017 硕士:华南师大(推免保送)')
-        addT3(where, ['trophy','trophy','trophy','trophy'], [
-            '2016年 3月~12月 <b>访问学者</b> - 美国UCO大学',
-            '2014年~2016年 连续三年 "<b>一等奖学金</b>"',
-            '2016年 3月 美国数学建模 "二等奖"',
-            '2015年 11月 校级学术演讲比赛 "第一名"'
-        ])
-        addT2(where, 'graduation-cap', '2010~2014 本科:华南师大(国家 211)')
-        addT3(where, ['trophy','trophy'], [
-            '2012年 全国物理实验竞赛 "二等奖"',
-            '2012年 广东物理设计大赛 "二等奖"'
-        ])
+            addT1(where, 'book', '教 育 经 历', 'Education')
+            addT2(where, 'graduation-cap', '2014~2017 硕士:华南师大(推免保送)')
+            addT3(where, ['trophy','trophy','trophy','trophy'], [
+                '2016年 3月~12月 <st>访问学者 - 美国</st>UCO大学',
+                '2014年~2016年 连续两年 "<st>一等奖学金</st>"',
+                '2016年 3月 美国<st>数学建模</st> "二等奖"',
+                '2015年 11月 校级学术演讲比赛 "第一名"'
+            ])
+            addT2(where, 'graduation-cap', '2010~2014 本科:华南师大(国家 211)')
+            addT3(where, ['trophy','trophy'], [
+                '2012年 全国物理实验竞赛 "二等奖"',
+                '2012年 广东物理设计大赛 "二等奖"'
+            ])
 
-        addT1(where, 'language', '语 言 水 平', 'Language')
-        addT2(where, 'star', '英  语')
-        addT3(where, ['check','check','check'], [
-            '通过 CET-4, <st>CET-6</st>',
-            '查阅英文技术文档, 开发者大会视频',
-            '在<st>美国</st>生活一年, <b>邮件/口语</b> 交流无障碍'
-        ])
-        addT2(where, 'star', '中  文')
-        addT3(where, ['check'], ['粤语 / 普通话 / 潮州话'])
+            addT1(where, 'language', '语 言 水 平', 'Language')
+            addT2(where, 'star', '英  语')
+            addT3(where, ['check','check','check'], [
+                '通过 CET-4, <st>CET-6</st>',
+                '查阅英文技术文档, 开发者大会视频',
+                '在<st>美国</st>生活一年, <b>邮件/口语</b> 交流无障碍'
+            ])
+            addT2(where, 'star', '中  文')
+            addT3(where, ['check'], ['粤语 / 普通话 / 潮州话 / 闽南语'])
+
+            addT1(where, 'key', '相关能力', 'Competency')
+            addT2(where, 'star', '前端基础')
+            addT2(where, 'star', '常用框架')
+            addT2(where, 'star', '其他技能')
         where = 'rightpart'
-        addT1(where, 'rocket', '前 端 经 验', 'Experience')
-        addT2(where, 'newspaper-o', `简历生成器`, 'resume.html')
-            addT3(where, ['star','gear','gear','gears'], [
-                '<st>自建框架</st>,生成预定样式的简历(本页面)',
-                '语义化的 HTML 模块化的 CSS 实现<st>响应式布局</st>',
-                '编写<st>JavaScript模块</st>生成html',
-                '采用<st>canvas画布绘制</st>,实现完美打印',
-            ])
-        addT2(where, 'calculator', `数字拼图 游戏`, 'resume.html')
-            addT3(where, ['star','gear','gear'], [
-                '基于<st>HTML5</st> 的单页面游戏应用',
-                '<b>完美兼容</b> 桌面端和移动端',
-                '尝试不使用<st>jQuery</st>纯粹使用<st>原生JS</st>开发'
-            ])
-        addT2(where, 'calendar-check-o', `ToDo 应用`, 'resume.html')
-            addT3(where, ['gear','gear','gear'], [
-                '使用<st> HTML5的localStorage </st>新特性实现本地数据存储',
-                '利用<st> Ajax和JSON </st>实现前后端协同数据交互',
-                '基于<b> 事件链监听 </b>实现用户界面插件化交互'
-            ])
-        addT2(where, 'photo', `天猫轮播图`, 'resume.html')
-            addT3(where, ['gear','gear','gear'], [
-                '利用<st> jQuery 面向对象 </st>开发轮播图组件',
-                '基于<st> CSS3 </st>的新特性实现设计意图'
-            ])
-        addT2(where, 'sign-in', `用户注册页面`, 'resume.html')
-            addT3(where, ['star','gear','gear'], [
-                '对用户输入内容的<st>实时监听/反馈</st>',
-                '使用 jQuery 创建基础 逻辑校验和 <st>Ajax表单提交</st>',
-            ])
-        addT2(where, 'weibo', `微博评论页面`, 'resume.html')
-            addT3(where, ['gear','gear','gear'], [
-                '利用<st>Ajax</st>和<st>localStorage</st>实现与服务器和本地的数据通信',
-                '基于<st>JavaScript</st>的逻辑校验和表单提交',
-            ])
-        addT2(where, 'home', `个人小站搭建`, 'resume.html')
-            addT3(where, ['gear','gear','gear','gears'], [
-                '采用<st>腾讯云服务器</st>和<st>Apache</st>搭建个人小站',
-                '基于<st>FTP协议</st>的站点维护',
-                '不使用WordPress等简易框架,完全自行搭建'
-            ])
+            addT1(where, 'rocket', '前 端 经 验', 'Experience')
+            addT2(where, 'newspaper-o', `简历生成器`, 'resume.html')
+                addT3(where, ['star','gear','gear','gears'], [
+                    '<st>自建框架</st>,生成预定样式的简历(本页面)',
+                    '语义化的 HTML 模块化的 CSS 实现<st>响应式布局</st>',
+                    '编写<st>JavaScript模块</st>生成html',
+                    '采用<st>canvas画布绘制</st>,实现"所见即所得"打印(请点击"打印PDF")',
+                ])
+            addT2(where, 'calendar-check-o', `ToDo 应用`, 'resume.html')
+                addT3(where, ['gear','gear','gear', 'gears'], [
+                    '使用<st> HTML5的localStorage </st>新特性实现本地数据存储',
+                    '利用<st> Ajax和JSON </st>实现前后端协同数据交互',
+                    '采用<st> Node.js </st>编写后端程序',
+                    '后端采用<st> Express框架 </st>和<st> fileSystem / bodyParser </st>组件实现与数据库的交互和读写'
+                ])
+            addT2(where, 'weibo', `微博评论页面`, 'resume.html')
+                addT3(where, ['gear','gear','gear'], [
+                    '利用<st>Ajax</st>和<st>localStorage</st>实现与服务器和本地的数据通信',
+                    '基于<st>JavaScript</st>的逻辑校验和表单提交',
+                ])
+            addT2(where, 'volume-up', `音乐播放器`, 'resume.html')
+                addT3(where, ['gear','gear','gear'], [
+                    '利用<st>Ajax</st>和<st>localStorage</st>实现与服务器和本地的数据通信',
+                    '基于<st>HTML5新标签audio</st>实现音乐播放器',
+                ])
+            addT2(where, 'calculator', `数字拼图 游戏`, 'resume.html')
+                addT3(where, ['star','gear','gear'], [
+                    '基于<st>HTML5</st> 的单页面游戏应用',
+                    '<b>完美兼容</b> 桌面端和移动端',
+                    '纯粹使用<st>原生JS</st>开发'
+                ])
+            addT2(where, 'photo', `天猫轮播图`, 'resume.html')
+                addT3(where, ['gear','gear','gear'], [
+                    '利用<st> jQuery 面向对象 </st>开发轮播图组件',
+                    '基于<st> CSS3 </st>的新特性实现设计意图'
+                ])
+            addT2(where, 'sign-in', `用户注册页面`, 'resume.html')
+                addT3(where, ['star','gear','gear'], [
+                    '对用户输入内容的<st>实时监听/反馈</st>',
+                    '使用 jQuery 创建基础 逻辑校验和 <st>Ajax表单提交</st>',
+                ])
+            addT2(where, 'home', `个人小站搭建`, 'resume.html')
+                addT3(where, ['gear','gear','gear','gears'], [
+                    '采用<st>腾讯云服务器</st>和<st>Apache</st>搭建个人小站',
+                    '基于<st>FTP协议</st>的站点维护',
+                    '不使用WordPress等简易框架,完全自行搭建'
+                ])
 
     }
     var initPrint = function () {
+        $('.btnPrint').on('click', function() {
+            windowPrint()
+        })
+    }
+
+    var windowPrint = function () {
+        // $('.main').addClass('print')
+        $('head').append(`<link rel="stylesheet" href="css/print.css">`)
         var giveImg = function() {
+            if ($('.name .p1')){$('.name .p1').remove()}
             var state = document.readyState
-                console.log('newImg')
-                if (state == 'complete') {
+            console.log('newImg')
+            if (state == 'complete') {
                 html2canvas(document.body, {
                 onrendered: function(canvas) {
-                $('.content').append(canvas);//生成画布后如何处理，当然可以在新标签打开，在浮层展示等等
+                    $('.content').append(canvas);//生成画布后如何处理，当然可以在新标签打开，在浮层展示等等
+                        var image = document.querySelector('.content canvas')
+                        // console.log(image)
+                        var mysrc =  image.toDataURL('image/png')
+                        printWindow = window.open()
+                        printWindow.document.write(`<img src=${mysrc}>`)
+                        printWindow.print()
+                        $('link').last().remove()
+                        $('.content canvas').remove()
                 },canvas_id: 'canvas1'});//通过修改html2canvas源码添加canvas的id
             }
         }
-        var windowPrint = function () {
-            var image = document.querySelector('.content canvas')
-            // console.log(image)
-            var mysrc =  image.toDataURL('image/png')
-            printWindow = window.open()
-            printWindow.document.write(`<img src=${mysrc}>`)
-            printWindow.print()
-        }
-        $('.btnPrint').on('click', function() {
-            giveImg()
-            setTimeout(windowPrint, 2000);
-        })
+        giveImg()
     }
 
     var __main = function () {
