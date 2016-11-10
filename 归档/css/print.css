@@ -1,0 +1,10 @@
+.topbar{display: none;}
+.contact{color: black; background-color: transparent;}
+.title1-txt{background-color: transparent; color:black;}
+.demo{background-color: transparent; color: darkgrey;}
+
+.printWindow{width:1060px;}
+.name{float: right;}
+.leftpart, .rightpart{width: 50%; height: 100%;}
+.leftpart{float: left;border-left: thin double #336699;}
+.rightpart{float: right; border-left: thin double #336699;border-right: thin double #336699;}
