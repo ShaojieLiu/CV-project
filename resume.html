@@ -120,7 +120,7 @@
                 background-color: #99ccff;
                 border: medium solid;
                 color: white;
-                width: 80%;
+                width: 90%;
                 position: absolute;;
                 z-index: -10;
                 border-radius: 0.3em;
@@ -174,7 +174,11 @@
             .none{display: none;}
             .main{height:100%;}
             /*.print{width: 800px;}*/
-            @media (min-width: 685px) {
+            @media (min-width: 1280px) {
+                body{width: 1280px;}
+                html{display: flex; justify-content: center;}
+            }
+            @media (min-width: 900px) {
                 .name{float: right;}
                 .leftpart, .rightpart{width: 50%; height: 100%;}
                 .leftpart{float: left;
